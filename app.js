@@ -18,7 +18,8 @@ const studentSchema = new mongoose.Schema({
     roll_no: String,
     mobile_no: String,
     branch: String,
-    year: String
+    year: String,
+    vehicle: String
 });
 
 const mailSchema = new mongoose.Schema({
@@ -47,6 +48,7 @@ app.route('/rent')
         const name = req.body.name, regd_no = req.body.regd_no;
         const roll_no = req.body.roll_no, mobile_no = req.body.mobile_no;
         const branch = req.body.branch, year = req.body.year;
+        const vehicle = req.body.vehicle;
 
         const student = new Student({
             name: name,
@@ -54,7 +56,8 @@ app.route('/rent')
             roll_no: roll_no,
             mobile_no: mobile_no,
             branch: branch,
-            year: year
+            year: year,
+            vehicle: vehicle
         });
 
         student.save(function (err) {
@@ -76,7 +79,7 @@ app.route('/contact')
         const lname = req.body.lname;
         const email = req.body.email;
         const subject = req.body.subject;
-        
+
         const contact = new Contact({
             fname: fname,
             lname: lname,

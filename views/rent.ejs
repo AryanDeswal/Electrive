@@ -1,6 +1,6 @@
 <%- include('header'); -%>
 
-    <form class= "test" action="/rent" method="post">
+    <form class="test" action="/rent" method="post">
         <label for="name" name="name">Name</label>
         <input type="text" id="name" name="name"><br>
         <label for="regd_no" name="regd_no">Regd_No</label>
@@ -13,6 +13,14 @@
         <input type="text" id="branch" name="branch"><br>
         <label for="year" name="year">Year</label>
         <input type="text" id="year" name="year"><br>
+        <label for="vehicle">Choose a vehicle:</label>
+        <select id="vehicle" name="vehicle">
+            <option value="vehicle1">vehicle1</option>
+            <option value="vehicle2">vehicle2</option>
+            <option value="vehicle3">vehicle3</option>
+            <option value="vehicle4">vehicle4</option>
+        </select>
+        <br>
         <button type="submit">Submit</button>
     </form>
 
