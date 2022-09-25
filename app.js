@@ -39,16 +39,18 @@ app.route('/')
     });
 
 
-app.route('/rent')
+app.route('/rent/:vehicle')
     .get(function (req, res) {
-        res.render(__dirname + '/views/rent');
+        const vehicleName = req.params.vehicle;
+        const vehicleLocation = "/images/" + vehicleName + ".png";
+        res.render(__dirname + '/views/rent', { vehicleName: vehicleName, vehicleLocation: vehicleLocation });
     })
     .post(function (req, res) {
 
         const name = req.body.name, regd_no = req.body.regd_no;
         const roll_no = req.body.roll_no, mobile_no = req.body.mobile_no;
         const branch = req.body.branch, year = req.body.year;
-        const vehicle = req.body.vehicle;
+        const vehicleName = req.params.vehicle;
 
         const student = new Student({
             name: name,
@@ -57,17 +59,15 @@ app.route('/rent')
             mobile_no: mobile_no,
             branch: branch,
             year: year,
-            vehicle: vehicle
+            vehicle: vehicleName
         });
 
         student.save(function (err) {
             if (err) { console.log(err); }
-            else { console.log("Data Inserted"); }
-        });
-
-        Student.find(function (err, students) {
-            if (err) { console.log(err); }
-            else { res.send(students); }
+            else {
+                console.log("Data Inserted");
+                res.send("<h1>Booked</h1>");
+            }
         });
     });
 
@@ -89,18 +89,19 @@ app.route('/contact')
 
         contact.save(function (err) {
             if (err) { console.log(err); }
-            else { console.log("Data Inserted"); }
-        });
-
-        Contact.find(function (err, contacts) {
-            if (err) { console.log(err); }
-            else { res.send(contacts); }
+            else { res.send("<h1>Done</h1>"); }
         });
     });
+
 
 app.route('/notices')
     .get(function (req, res) {
         res.render(__dirname + '/views/notices');
+    });
+
+app.route('/about')
+    .get(function (req, res) {
+        res.render(__dirname + '/views/about.ejs');
     });
 
 
