@@ -1,67 +1,91 @@
-<%- include('header'); -%>
+<!DOCTYPE html>
+<html lang="en">
+<%- include('./partials/head.ejs'); -%>
 
-    <div class="test">
-        <h2> Carousel </h2>
-        <p style="color:red;">-------------------------------------------------------------------------------------</p>
-    </div>
+    <body>
+        <%- include('./partials/nav.ejs'); -%>
 
-    <div class="test">
-        <h2> Vision </h2>
-        <!-- Required Links -->
-        <p style="color:red;">-------------------------------------------------------------------------------------</p>
-    </div>
+            <div class="test">
+                <h2> Carousel </h2>
+                <p style="color:red;">
+                    -------------------------------------------------------------------------------------
+                </p>
+            </div>
 
-    <div class="test">
-        <h2> Mission </h2>
-        <!-- Required Links -->
-        <p style="color:red;">-------------------------------------------------------------------------------------</p>
-    </div>
+            <div class="test">
+                <h2> Vision </h2>
+                <!-- Required Links -->
+                <p style="color:red;">
+                    -------------------------------------------------------------------------------------
+                </p>
+            </div>
 
-    <div class="test">
-        <h2> Achievement </h2>
-        <!-- Required Links -->
-        <p style="color:red;">-------------------------------------------------------------------------------------</p>
-    </div>
+            <div class="test">
+                <h2> Mission </h2>
+                <!-- Required Links -->
+                <p style="color:red;">
+                    -------------------------------------------------------------------------------------
+                </p>
+            </div>
 
-    <div class="test">
-        <h2> Notices </h2>
-        <!-- Required Links -->
-        <a href="/notices">Load more</a>
-        <p style="color:red;">-------------------------------------------------------------------------------------</p>
-    </div>
+            <div class="test">
+                <h2> Achievement </h2>
+                <!-- Required Links -->
+                <p style="color:red;">
+                    -------------------------------------------------------------------------------------
+                </p>
+            </div>
 
-    <div class="test">
-        <h2> Our Products </h2>
-        <!-- Required Links -->
-        <a href="/rent/Vehicle1">Rent</a>
-        <a href="/rent/Vehicle2">Rent</a>
-        <a href="/rent/Vehicle3">Rent</a>
-        <a href="/rent/Vehicle4">Rent</a>
-        <a href="/rent/Vehicle5">Rent</a>
-        <a href="/rent/Vehicle6">Rent</a>
-        <a href="/rent/Vehicle7">Rent</a>
-        <p style="color:red;">-------------------------------------------------------------------------------------</p>
-    </div>
+            <div class="test">
+                <h2> Notices </h2>
+                <!-- Required Links -->
+                <a href="/notices">Load more</a>
+                <p style="color:red;">
+                    -------------------------------------------------------------------------------------
+                </p>
+            </div>
 
-    <div class="test">
-        <h2> Why Choose Us </h2>
-        <!-- Required Links -->
-        <p style="color:red;">-------------------------------------------------------------------------------------</p>
-    </div>
+            <div class="test">
+                <h2> Our Products </h2>
+                <!-- Required Links -->
+                <a href="/rent/Vehicle1">Rent</a>
+                <a href="/rent/Vehicle2">Rent</a>
+                <a href="/rent/Vehicle3">Rent</a>
+                <a href="/rent/Vehicle4">Rent</a>
+                <a href="/rent/Vehicle5">Rent</a>
+                <a href="/rent/Vehicle6">Rent</a>
+                <a href="/rent/Vehicle7">Rent</a>
+                <p style="color:red;">
+                    -------------------------------------------------------------------------------------
+                </p>
+            </div>
 
-    <div class="test">
-        <h2> Contact Us </h2>
-        <form class="test" action="/contact" method="post">
-            <label for="fname" name="fname">First Name</label>
-            <input type="text" id="fname" name="fname"><br>
-            <label for="lname" name="lname">Last Name</label>
-            <input type="text" id="lname" name="lname"><br>
-            <label for="email" name="email">E-mail</label>
-            <input type="email" id="email" name="email"><br>
-            <label for="subject" name="subject">Subject</label>
-            <input type="text" id="subject" name="subject"><br>
-            <button type="submit">Submit</button>
-        </form>
-    </div>
+            <div class="test">
+                <h2> Why Choose Us </h2>
+                <!-- Required Links -->
+                <p style="color:red;">
+                    -------------------------------------------------------------------------------------
+                </p>
+            </div>
 
-<%- include('footer'); -%>
+            <div class="test">
+                <h2> Contact Us </h2>
+                <form class="test" action="/contact" method="post">
+                    <label for="fname" name="fname">First Name</label>
+                    <input type="text" id="fname" name="fname"><br>
+                    <label for="lname" name="lname">Last Name</label>
+                    <input type="text" id="lname" name="lname"><br>
+                    <label for="email" name="email">E-mail</label>
+                    <input type="email" id="email" name="email"><br>
+                    <label for="subject" name="subject">Subject</label>
+                    <input type="text" id="subject" name="subject"><br>
+                    <button type="submit">Submit</button>
+                </form>
+            </div>
+            <p style="color:red; text-align: center;">
+                -------------------------------------------------------------------------------------</p>
+            <%- include('./partials/footer.ejs'); -%>
+
+    </body>
+
+</html>

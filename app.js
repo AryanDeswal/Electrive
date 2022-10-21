@@ -93,5 +93,6 @@ app.route('/about')
         res.render(__dirname + '/views/about.ejs');
     });
 
+app.use((req, res) => { res.status(404).render(__dirname + "/views/404.ejs"); });
 
 app.listen(process.env.PORT, () => { console.log('Server started successfully,'); });

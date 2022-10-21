@@ -1,28 +1,37 @@
-<%- include('header'); -%>
-    <div class="test">
+<!DOCTYPE html>
+<html lang="en">
+<%- include('./partials/head.ejs') -%>
 
-        <h1>
-            <%= vehicleName %>
-        </h1>
-        <img src='<%=imgLocation %>' alt="Image of vehicle" height="300px" width="400px">
+    <body>
+        <%- include('./partials/nav.ejs') -%>
+            <div class="test">
 
-        <h1>Enter Your Details</h1>
-        <form action="/rent/<%= vehicleName %>" method="post">
-            <label for="name" name="name">Name</label>
-            <input type="text" id="name" name="name"><br>
-            <label for="regd_no" name="regd_no">Regd_No</label>
-            <input type="text" id="regd_no" name="regd_no"><br>
-            <label for="roll_no" name="roll_no">Roll_No</label>
-            <input type="text" id="roll_no" name="roll_no"><br>
-            <label for="mobile_no" name="mobile_no">Mobile_No</label>
-            <input type="text" id="mobile_no" name="mobile_no"><br>
-            <label for="branch" name="branch">Branch</label>
-            <input type="text" id="branch" name="branch"><br>
-            <label for="year" name="year">Year</label>
-            <input type="text" id="year" name="year"><br>
-            <br>
-            <button type="submit">Submit</button>
-        </form>
-    </div>
+                <h1>
+                    <%= vehicleName %>
+                </h1>
+                <img src='<%=imgLocation %>' alt="Image of vehicle" height="300px" width="400px">
 
-<%- include('footer'); -%>
+                <h1>Enter Your Details</h1>
+                <form action="/rent/<%= vehicleName %>" method="post">
+                    <label for="name" name="name">Name</label>
+                    <input type="text" id="name" name="name"><br>
+                    <label for="regd_no" name="regd_no">Regd_No</label>
+                    <input type="text" id="regd_no" name="regd_no"><br>
+                    <label for="roll_no" name="roll_no">Roll_No</label>
+                    <input type="text" id="roll_no" name="roll_no"><br>
+                    <label for="mobile_no" name="mobile_no">Mobile_No</label>
+                    <input type="text" id="mobile_no" name="mobile_no"><br>
+                    <label for="branch" name="branch">Branch</label>
+                    <input type="text" id="branch" name="branch"><br>
+                    <label for="year" name="year">Year</label>
+                    <input type="text" id="year" name="year"><br>
+                    <br>
+                    <button type="submit">Submit</button>
+                </form>
+            </div>
+            <p style="color:red; text-align: center;">
+                -------------------------------------------------------------------------------------</p>
+            <%- include('./partials/footer.ejs') -%>
+    </body>
+
+</html>
