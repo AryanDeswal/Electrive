@@ -1,13 +1,14 @@
+const express = require('express');
 const bodyParser = require('body-parser');
 const ejs = require('ejs');
-const express = require('express');
+require("dotenv").config();
 const mongoose = require('mongoose');
 
-mongoose.connect("mongodb://localhost:27017/electriveDB", { useNewUrlParser: true });
+mongoose.connect(process.env.MONGODB_URI, { useNewUrlParser: true });
 
 const app = express();
+const bodyParser_urlencoded = bodyParser.urlencoded({ extended: true });
 
-app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static('public'));
 
 app.set('view engine', 'ejs');
@@ -34,32 +35,26 @@ const Contact = mongoose.model('Contact', mailSchema);
 
 
 app.route('/')
-    .get(function (req, res) {
+    .get((req, res) => {
         res.render(__dirname + '/views/home');
     });
 
 
 app.route('/rent/:vehicle')
-    .get(function (req, res) {
+    .get(bodyParser_urlencoded, (req, res) => {
         const vehicleName = req.params.vehicle;
-        const vehicleLocation = "/images/" + vehicleName + ".png";
-        res.render(__dirname + '/views/rent', { vehicleName: vehicleName, vehicleLocation: vehicleLocation });
+        const imgLocation = "/images/" + vehicleName + ".png";
+        res.render(__dirname + '/views/rent', { vehicleName: vehicleName, imgLocation: imgLocation });
     })
-    .post(function (req, res) {
-
-        const name = req.body.name, regd_no = req.body.regd_no;
-        const roll_no = req.body.roll_no, mobile_no = req.body.mobile_no;
-        const branch = req.body.branch, year = req.body.year;
-        const vehicleName = req.params.vehicle;
-
+    .post(bodyParser_urlencoded, (req, res) => {
         const student = new Student({
-            name: name,
-            regd_no: regd_no,
-            roll_no: roll_no,
-            mobile_no: mobile_no,
-            branch: branch,
-            year: year,
-            vehicle: vehicleName
+            name: req.body.name,
+            regd_no: req.body.regd_no,
+            roll_no: req.body.roll_no,
+            mobile_no: req.body.mobile_no,
+            branch: req.body.branch,
+            year: req.body.year,
+            vehicle: req.params.vehicle
         });
 
         student.save(function (err) {
@@ -73,18 +68,12 @@ app.route('/rent/:vehicle')
 
 
 app.route('/contact')
-    .post(function (req, res) {
-
-        const fname = req.body.fname;
-        const lname = req.body.lname;
-        const email = req.body.email;
-        const subject = req.body.subject;
-
+    .post(bodyParser_urlencoded, (req, res) => {
         const contact = new Contact({
-            fname: fname,
-            lname: lname,
-            email: email,
-            subject: subject,
+            fname: req.body.fname,
+            lname: req.body.lname,
+            email: req.body.email,
+            subject: req.body.subject,
         });
 
         contact.save(function (err) {
@@ -95,16 +84,14 @@ app.route('/contact')
 
 
 app.route('/notices')
-    .get(function (req, res) {
+    .get((req, res) => {
         res.render(__dirname + '/views/notices');
     });
 
 app.route('/about')
-    .get(function (req, res) {
+    .get((req, res) => {
         res.render(__dirname + '/views/about.ejs');
     });
 
 
-app.listen(3000, function () {
-    console.log('Server started successfully,');
-});
+app.listen(process.env.PORT, () => { console.log('Server started successfully,'); });
