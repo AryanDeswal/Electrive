@@ -45,6 +45,8 @@ const Contact = mongoose.model('Contact', mailSchema);
 const Notice = mongoose.model('Notice', noticeSchema);
 const News = mongoose.model('News', newsSchema);
 
+let isAdmin = false;
+
 
 app.route('/')
     .get((req, res) => {
@@ -71,7 +73,7 @@ app.route('/rent/:vehicle')
 
         student.save(function (err) {
             if (err) { console.log(err); }
-            else { res.send("<h1>Booked</h1>"); }
+            else { res.send("<div> <h1> Booked </h1> <a href='/'> Home </a> </div>"); }
         });
     });
 
@@ -87,7 +89,7 @@ app.route('/contact')
 
         contact.save(function (err) {
             if (err) { console.log(err); }
-            else { res.send("<h1>Done</h1>"); }
+            else { res.send("<div> <h1> Done </h1> <a href='/'> Home </a> </div>"); }
         });
     });
 
@@ -122,13 +124,67 @@ app.route('/projects')
 
 app.route('/about')
     .get((req, res) => {
-        res.render(__dirname + '/views/about.ejs');
+        res.render(__dirname + '/views/about');
+    });
+
+
+app.route('/post')
+    .get((req, res) => {
+        res.render(__dirname + '/views/post');
+    })
+    .post(bodyParser_urlencoded, (req, res) => {
+        const redirect = req.body.redirect;
+        if (process.env.PASSWORD === req.body.code && (redirect === "news" || redirect === "notice")) {
+            isAdmin = true;
+            res.redirect('/post/' + redirect);
+        }
+        else { res.status(404).render(__dirname + "/views/404"); }
+    })
+
+
+app.route('/post/notice')
+    .get((req, res) => {
+        if (isAdmin) {
+            isAdmin = false;
+            res.render(__dirname + '/views/postNotice');
+        }
+        else { res.status(404).render(__dirname + "/views/404"); }
+    })
+    .post(bodyParser_urlencoded, (req, res) => {
+        const notice = new Notice({
+            title: req.body.title,
+            content: req.body.content
+        });
+        notice.save((err) => {
+            if (err) { console.log(err); }
+            else { res.send("<div> <h1> Done </h1> <a href='/'> Home </a> </div>"); }
+        })
+    });
+
+
+app.route('/post/news')
+    .get((req, res) => {
+        if (isAdmin) {
+            isAdmin = false;
+            res.render(__dirname + '/views/postNews');
+        }
+        else { res.status(404).render(__dirname + "/views/404"); }
+    })
+    .post(bodyParser_urlencoded, (req, res) => {
+        const news = new News({
+            title: req.body.title,
+            content: req.body.content
+        });
+        news.save((err) => {
+            if (err) { console.log(err); }
+            else { res.send("<div> <h1> Done </h1> <a href='/'> Home </a> </div>") }
+        });
     });
 
 
 app.use((req, res) => {
-    res.status(404).render(__dirname + "/views/404.ejs");
+    res.status(404).render(__dirname + "/views/404");
 });
 
 
-app.listen(process.env.PORT, () => { console.log('Server started successfully,'); });
+app.listen(process.env.PORT, () => { console.log('Server started successfully.'); });

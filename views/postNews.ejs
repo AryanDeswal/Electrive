@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('./partials/head.ejs'); -%>
+
+<body>
+    <%- include('./partials/nav.ejs'); -%>
+
+    <h1 class="test">Post News</h1>
+
+    <form class="test" action="/post/news" method="post">
+        <label for="title" name="title">Title</label>
+        <input type="text" id="title" name="title"><br>
+        <label for="content" name="content">Content</label>
+        <input type="text" id="content" name="content"><br>
+        <button type="submit">Submit</button>
+    </form>
+
+    <p style="color:red; text-align: center;">-------------------------------------------------------------------------------------</p>
+
+    <%- include('./partials/footer.ejs'); -%>
+</body>
+
+</html>
