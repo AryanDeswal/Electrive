@@ -30,8 +30,20 @@ const mailSchema = new mongoose.Schema({
     subject: String,
 });
 
+const noticeSchema = new mongoose.Schema({
+    title: String,
+    content: String
+});
+
+const newsSchema = new mongoose.Schema({
+    title: String,
+    content: String
+});
+
 const Student = mongoose.model('Student', studentSchema);
 const Contact = mongoose.model('Contact', mailSchema);
+const Notice = mongoose.model('Notice', noticeSchema);
+const News = mongoose.model('News', newsSchema);
 
 
 app.route('/')
@@ -59,10 +71,7 @@ app.route('/rent/:vehicle')
 
         student.save(function (err) {
             if (err) { console.log(err); }
-            else {
-                console.log("Data Inserted");
-                res.send("<h1>Booked</h1>");
-            }
+            else { res.send("<h1>Booked</h1>"); }
         });
     });
 
@@ -85,14 +94,41 @@ app.route('/contact')
 
 app.route('/notices')
     .get((req, res) => {
-        res.render(__dirname + '/views/notices');
+        Notice.find({}, (err, notices) => {
+            if (err) {
+                return res.send("Something went wrong.......")
+            };
+            res.render(__dirname + '/views/notices', { notices: notices });
+        });
     });
+
+
+app.route('/news')
+    .get((req, res) => {
+        News.find({}, (err, news) => {
+            if (err) {
+                return res.send("Something went wrong.......")
+            };
+            res.render(__dirname + '/views/news', { news: news });
+        });
+    });
+
+
+app.route('/projects')
+    .get((req, res) => {
+        res.render(__dirname + '/views/projects');
+    });
+
 
 app.route('/about')
     .get((req, res) => {
         res.render(__dirname + '/views/about.ejs');
     });
 
-app.use((req, res) => { res.status(404).render(__dirname + "/views/404.ejs"); });
+
+app.use((req, res) => {
+    res.status(404).render(__dirname + "/views/404.ejs");
+});
+
 
 app.listen(process.env.PORT, () => { console.log('Server started successfully,'); });

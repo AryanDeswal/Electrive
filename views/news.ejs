@@ -5,12 +5,12 @@
 <body>
     <%- include('./partials/nav.ejs'); -%>
 
-    <h1 class="test">Notices</h1>
+    <h1 class="test">News Letters</h1>
 
     <div class="test">
-        <% notices.forEach( notice => { %>
-            <h1> <%= notice.title %> </h1>
-            <p> <%= notice.content %> </p>
+        <% news.forEach( newsObj => { %>
+            <h1> <%= newsObj.title %> </h1>
+            <p> <%= newsObj.content %> </p>
         <% }) %>
     </div>
 
