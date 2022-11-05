@@ -1,6 +1,6 @@
 import dotenv from 'dotenv';
-import Notice from '../models/notice.js'
-import News from '../models/news.js'
+import Notice from '../models/noticeModel.js'
+import News from '../models/newsModel.js'
 
 dotenv.config();
 
@@ -28,10 +28,10 @@ export const getNotice = (req, res) => {
 };
 
 export const postNotice = (req, res) => {
-    const notice = new Notice({
-        title: req.body.title,
-        content: req.body.content
-    });
+    const { title, content } = req.body;
+
+    const notice = new Notice({ title, content });
+    
     notice.save((err) => {
         if (err) { console.log(err); }
         else { res.send("<div> <h1> Done </h1> <a href='/'> Home </a> </div>"); }
@@ -47,10 +47,10 @@ export const getNews = (req, res) => {
 };
 
 export const postNews = (req, res) => {
-    const news = new News({
-        title: req.body.title,
-        content: req.body.content
-    });
+    const { title, content } = req.body;
+
+    const news = new News({ title, content });
+
     news.save((err) => {
         if (err) { console.log(err); }
         else { res.send("<div> <h1> Done </h1> <a href='/'> Home </a> </div>") }

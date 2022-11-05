@@ -1,9 +1,9 @@
 import mongoose from 'mongoose';
 
 const noticeSchema = new mongoose.Schema({
-    title: String,
-    content: String
-});
+    title: { type: String, required: true },
+    content: { type: String, required: true }
+}, { timestamps: true });
 
 const Notice = mongoose.model('Notice', noticeSchema);
 

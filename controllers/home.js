@@ -1,6 +1,6 @@
-import News from '../models/news.js'
-import Notice from '../models/notice.js'
-import Contact from '../models/contact.js'
+import News from '../models/newsModel.js'
+import Notice from '../models/noticeModel.js'
+import Contact from '../models/contactModel.js'
 
 export const getHome = (req, res) => {
     res.render('../views/home');
@@ -11,7 +11,7 @@ export const getNotice = (req, res) => {
         if (err) {
             return res.send("Something went wrong.......")
         };
-        res.render('../views/notices', { notices: notices });
+        res.render('../views/notices', { notices });
     });
 };
 
@@ -20,7 +20,7 @@ export const getNews = (req, res) => {
         if (err) {
             return res.send("Something went wrong.......")
         };
-        res.render('../views/news', { news: news });
+        res.render('../views/news', { news });
     });
 };
 
@@ -33,12 +33,9 @@ export const getAbout = (req, res) => {
 };
 
 export const postContact = (req, res) => {
-    const contact = new Contact({
-        fname: req.body.fname,
-        lname: req.body.lname,
-        email: req.body.email,
-        subject: req.body.subject,
-    });
+    const { fname, lname, email, subject } = req.body;
+
+    const contact = new Contact({ fname, lname, email, subject, });
 
     contact.save(function (err) {
         if (err) { console.log(err); }

@@ -1,4 +1,4 @@
-import Student from '../models/student.js'
+import Student from '../models/studentModel.js'
 
 export const getVehicle = (req, res) => {
     const vehicleName = req.params.vehicle;
@@ -7,15 +7,10 @@ export const getVehicle = (req, res) => {
 };
 
 export const postVehicle = (req, res) => {
-    const student = new Student({
-        name: req.body.name,
-        regd_no: req.body.regd_no,
-        roll_no: req.body.roll_no,
-        mobile_no: req.body.mobile_no,
-        branch: req.body.branch,
-        year: req.body.year,
-        vehicle: req.params.vehicle
-    });
+    const { name, regd_no, roll_no, mobile_no, branch, year } = req.body;
+    const { vehicle } = req.params;
+
+    const student = new Student({ name: name, regd_no, roll_no, mobile_no, branch, year, vehicle });
 
     student.save(function (err) {
         if (err) { console.log(err); }
