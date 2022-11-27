@@ -1,13 +1,55 @@
 <!DOCTYPE html>
 <html lang="en">
-<%- include('./partials/head.ejs') -%>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>404 page</title>
+    <style>
+		@import url('https://fonts.googleapis.com/css?family=Lato');
+		body{
+			margin: 0px;
+			padding: 0px;
+			font-family: 'Lato', sans-serif;
+		}
+		.err_page{
+			/* background-color: rgb(20, 3, 3); */
+			color: rgb(24, 18, 18);
+			margin: 0px;
+			text-align: center;
+			height: 745px;
+			width: 100%;
+		}
+		.err_page_right h1{
+			color: #892020;
+			font-size: 8rem;
+		}
+		.err_page_right p{
+			color: rgb(42, 39, 35);
+			opacity: 0.8;
+		}
+		.err_btn{
+			border: none;
+			border-radius: 20px;
+			background: linear-gradient(to right, #7c7cd2 , #ff7979);
+			padding: 9px;
+			font-size: 1.1rem;
+		}
 
-    <body>
-        <%- include('./partials/nav.ejs'); -%>
-
-            <h1 class="test">Page Not Found.</h1>
-
-            <%- include('./partials/footer.ejs') -%>
-    </body>
-
+	</style>
+</head>
+<body>
+    <div class="err_page">
+		<div class="err_page_left">
+			<img src="https://blogger.googleusercontent.com/img/a/AVvXsEi_td6QYAIZlb1Bhoo7it7f1OI8XGXQIdJ51xpYTJrk-94frvU0DZwK5AJn1luY60aKIAcw9J9theq3NVi9evrs329TtdPav30jw-E1lEjsp_T1QeAITbO4R0JxphTPTL4i0774-pNIM8RtmpVGujKrFWZbVt_W-zr8DAbJ0Btsg7anUXvgmNoolkD6" width=360px height=250px/>
+		</div>
+		<div class="err_page_right">
+			<h1>404</h1>
+			<h4>OOPS. Looks like the page you're looking for no longer exists</h4>
+			<p>Don't worry. Since you're valuable to us we will bring you back to safety</p>
+			<a href="/"><button class="err_btn">Back to home</button></a>
+		</div>	
+	
+	</div>
+</body>
 </html>
