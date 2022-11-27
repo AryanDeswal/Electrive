@@ -1,4 +1,349 @@
-.test {
-    color: darkblue;
-    text-align: center;
+@import url('https://fonts.googleapis.com/css2?family=Nerko+One&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Lato');
+* {
+	font-family: 'Montserrat', sans-serif;
+}
+body {
+	background: #f1fbff;
+}
+.section-padding {
+	padding: 100px 0;
+}
+.carousel-item {
+	height: 100vh;
+	min-height: 300px;
+}
+.carousel-caption {
+	bottom: 220px;
+	z-index: 2;
+}
+.carousel-caption h5 {
+	font-size: 45px;
+	text-transform: uppercase;
+	letter-spacing: 2px;
+	margin-top: 25px;
+}
+.carousel-caption p {
+	width: 60%;
+	margin: auto;
+	font-size: 18px;
+	line-height: 1.9;
+}
+.carousel-inner:before {
+	content: '';
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+	background: rgba(0, 0, 0, 0.7);
+	z-index: 1;
+}
+.navbar .getstarted {
+	background: #106eea;
+	margin-left: 30px;
+	border-radius: 4px;
+	font-weight: 400;
+	color: #fff;
+	text-decoration: none;
+	padding: .5rem 1rem;
+	line-height: 2.3;
+}
+.navbar-nav a {
+	font-size: 15px;
+	text-transform: uppercase;
+	font-weight: 500;
+}
+.navbar-light .navbar-brand {
+	color: #000;
+	font-size: 25px;
+	text-transform: uppercase;
+	font-weight: bold;
+	letter-spacing: 2px;
+}
+.navbar-light .navbar-brand:focus, .navbar-light .navbar-brand:hover {
+	color: #000;
+}
+.navbar-light .navbar-nav .nav-link {
+	color: #000;
+}
+.navbar-light .navbar-nav .nav-link:focus, .navbar-light .navbar-nav .nav-link:hover {
+	color: #000;
+}
+.w-100 {
+	height: 100vh;
+}
+.navbar-toggler {
+	padding: 1px 5px;
+	font-size: 18px;
+	line-height: 0.3;
+	background: #fff;
+}
+.portfolio .card {
+	box-shadow: 15px 15px 40px rgba(0, 0, 0, 0.15);
+}
+.team{
+	margin: 0 auto;
+}
+.team .card {
+	box-shadow: 15px 15px 40px rgba(0, 0, 0, 0.15);
+}
+.services .card-body i {
+	font-size: 50px;
+}
+.team .card-body i {
+	font-size: 20px;
+}
+.sec{
+	margin: 40px;
+}
+.card{
+	margin-right: 10px;
+	border-radius: 10px;
+}
+
+.width{
+	height: 33vh;
+	min-height: 100px;
+}
+/* css of About page */
+.amain p span{
+	color: yellow;
+	font-weight: 1000;
+	font-size: 40px;
+}
+.writingPart{
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+}
+#myBtn{
+    background-color: transparent;
+	/* margin: 0 auto; */
+	color: blue;
+
+	
+
+}
+.imagePart{
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+
+}
+.buttonr{
+	margin: 0 auto;
+}
+.imagePart img{
+	/* display: flex; */
+	height: 416px;
+    min-height: 200px;
+    width: 384px;
+    margin: 89px;
+    padding: 20px;
+	align-items: center;
+
+}
+.card{
+	box-shadow: 15px 15px 40px rgba(0, 0, 0, 0.15);
+}
+
+@media only screen and (max-width:772px) {
+
+	.writingPart{
+		display: flex;
+		flex-direction: column;
+		width: 100vw;
+		align-items: center;
+		text-align: center;
+	    
+		
+	}
+	.aboutclub{
+		text-align: center;
+	}
+	
+}
+
+.tp a{
+	
+}
+.tp-btn{
+	width: 47px;
+    height: 42px;
+    border: 3px solid #804f4f;
+    border-radius: 14px;
+    margin-right: 46px;
+    margin-bottom: 10px;
+    padding: 11px;
+}
+.tp-btn::before{
+	margin-right: 0px;
+}
+.projbtn{
+	border: 2px solid transparent;
+	border-radius: 10px;
+	background-color: transparent;
+	margin: auto;
+	text-decoration: overline;
+	display: block;
+	
+}
+.notHidden{
+	display: flex;
+	flex-grow: 1;
+	width: 84vw;
+	margin-top: 20px;
+	padding: 2px;
+}
+.hidden{
+	display: none;
+}
+.load{
+	margin-right: 10px;
+	padding: 10px;
+}
+#servibtn{
+	display: block;
+	border: 2px solid transparent;
+	border-radius: 10px;
+	background-color: transparent;
+	margin: 15px auto;
+	text-decoration: overline;
+	
+}
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+	.carousel-caption {
+		bottom: 370px;
+	}
+	.carousel-caption p {
+		width: 100%;
+	}
+	.card {
+		margin-bottom: 30px;
+	}
+	.img-area img {
+		width: 100%;
+	}
+	.notHidden{
+		display: inline;
+	}
+}
+@media only screen and (max-width: 767px) {
+	.navbar-nav {
+		text-align: center;
+	}
+	.carousel-caption {
+		bottom: 125px;
+	}
+	.carousel-caption h5 {
+		font-size: 17px;
+	}
+	.carousel-caption a {
+		padding: 10px 15px;
+		font-size: 15px;
+	}
+	.carousel-caption p {
+		width: 100%;
+		line-height: 1.6;
+		font-size: 12px;
+	}
+	.about-text {
+		padding-top: 50px;
+	}
+	.card {
+		margin-bottom: 30px;
+	}
+	.notHidden{
+		display: inline;
+	}
+}
+@media only screen and (max-width:557px) {
+	.writingPart{
+		width: 100%;
+		text-align: center;
+		display: flex;
+		flex-direction: column;
+	}
+	.notHidden{
+		display: inline;
+	}
+}
+
+
+/* services section css */
+#rent{
+	margin: 0px;
+	padding: 0px;
+    font-family: 'Nerko One', cursive;
+}
+.ser_main{
+	margin: 0px;
+	display: flex;
+	height: 92.5vh;
+	width: 100vw;
+	/* background: linear-gradient(to right , #ededcc , #abe2ab); */
+	
+}
+.img_box{
+	border: 2px solid burlywood;
+	margin: auto;
+	width: 50vw;
+	height: 92vh;
+	/* margin-left: 13vw; */
+	padding: 33px;
+	background-color: transparent;
+	/* border-radius: 20px; */
+	text-align: center;
+	background-color: #b1cbed
+	/* background: linear-gradient(to right , #9797d6 , #f28282); */
+}
+.img_box img{
+	height: 27vh;
+    width: 20vw;
+    margin-top: 6vh;
+    margin-bottom: 8vh;
+	background-color: transparent;
+	opacity: 0;
+}
+.ser_form{
+	display: flex;
+	flex-direction: column;
+	position: relative;
+	/* top: 112px; */
+	/* right: 20vw; */
+	/* background:linear-gradient(to right , #9797d6 , #f28282); */
+	width: 50vw;
+	height:  100vh;
+	/* border: 3px solid burlywood; */
+	border-radius: 20px;
+	align-items: center;
+	justify-content: center;
+	gap: 4px;
+}
+.ser_form input{
+	/* border-radius: 20px; */
+	width: 25vw;
+	height: 4vh;
+	font-style: italic;
+}
+.ser_form label{
+	display: block;
+	margin-bottom: 4px;
+}
+.rentheading{
+	font-size: 1.5rem;
+	font-weight: 100;
+	text-decoration: overline rgb(119, 189, 169);
+}
+.rentheading #Rent{
+	color: rgb(189, 215, 237);
+}
+.formbtn button{
+	border-radius: 20px;
+	width: 15vw;
+	margin-top: 10px;
+	
+    background: linear-gradient(to right , #e7adad , #bbbbef);
+
 }

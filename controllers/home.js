@@ -33,9 +33,9 @@ export const getAbout = (req, res) => {
 };
 
 export const postContact = (req, res) => {
-    const { fname, lname, email, subject } = req.body;
+    const { name, email, subject } = req.body;
 
-    const contact = new Contact({ fname, lname, email, subject, });
+    const contact = new Contact({ name, email, subject, });
 
     contact.save(function (err) {
         if (err) { console.log(err); }
